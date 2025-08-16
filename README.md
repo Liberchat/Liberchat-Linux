@@ -73,8 +73,6 @@ Après compilation (`npm run build`), vous trouverez dans le dossier `dist/` :
   - Installez avec : `sudo dpkg -i Liberchat-*.deb`
   - Ou double-cliquez sur le fichier dans votre gestionnaire de fichiers.
 
-- **Fedora/RedHat** (`.rpm`) :
-  - Installez avec : `sudo rpm -i Liberchat-*.rpm`
 
 - **Snap** (`.snap`) :
   - Installez avec : `sudo snap install --dangerous Liberchat-*.snap`
