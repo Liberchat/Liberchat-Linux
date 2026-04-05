@@ -7,6 +7,8 @@ const os = require('os');
 if (process.platform === 'linux') {
     app.commandLine.appendSwitch('enable-features', 'UseOzonePlatform');
     app.commandLine.appendSwitch('ozone-platform-hint', 'auto');
+    // Set App ID for Wayland/KDE Task Manager mapping
+    app.setAppUserModelId('liberchat');
 }
 
 let mainWindow;
@@ -59,6 +61,7 @@ function addToHistory(serverUrl) {
 
 function createSplash() {
     splash = new BrowserWindow({
+        title: 'Liberchat',
         width: 520,
         height: 340,
         frame: false,
@@ -85,6 +88,7 @@ function createWindow() {
         splash = null;
     }
     mainWindow = new BrowserWindow({
+        title: 'Liberchat',
         width: 1400,
         height: 900,
         minWidth: 900,
@@ -159,3 +163,4 @@ app.on('window-all-closed', () => {
         app.quit();
     }
 });
+
