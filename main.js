@@ -3,11 +3,17 @@ const path = require('path');
 const fs = require('fs');
 const os = require('os');
 
+// Enable Wayland support for Linux (essential for Fedora)
+if (process.platform === 'linux') {
+    app.commandLine.appendSwitch('enable-features', 'UseOzonePlatform');
+    app.commandLine.appendSwitch('ozone-platform-hint', 'auto');
+}
+
 let mainWindow;
 let splash;
 let selectedServer = 'https://liberchat.cnt-ait-contact.noho.st/liberchat';
 
-// Configuration et données utilisateur
+// Configuration and user data
 const userDataPath = path.join(os.homedir(), '.liberchat');
 const configFile = path.join(userDataPath, 'config.json');
 
@@ -17,7 +23,7 @@ let userConfig = {
     lastServer: 'https://liberchat.cnt-ait-contact.noho.st/liberchat'
 };
 
-// Charger la configuration
+// Load configuration
 function loadConfig() {
     try {
         if (!fs.existsSync(userDataPath)) {
@@ -29,24 +35,24 @@ function loadConfig() {
         }
         selectedServer = userConfig.lastServer;
     } catch (error) {
-        console.log('Erreur lors du chargement de la config:', error);
+        console.log('Error loading config:', error);
     }
 }
 
-// Sauvegarder la configuration
+// Save configuration
 function saveConfig() {
     try {
         fs.writeFileSync(configFile, JSON.stringify(userConfig, null, 2));
     } catch (error) {
-        console.log('Erreur lors de la sauvegarde:', error);
+        console.log('Error saving config:', error);
     }
 }
 
-// Ajouter un serveur à l'historique
+// Add a server to history
 function addToHistory(serverUrl) {
     const history = userConfig.serverHistory.filter(url => url !== serverUrl);
     history.unshift(serverUrl);
-    userConfig.serverHistory = history.slice(0, 5); // Garder seulement les 5 derniers
+    userConfig.serverHistory = history.slice(0, 5); // Keep only the last 5 rows
     userConfig.lastServer = serverUrl;
     saveConfig();
 }
@@ -62,7 +68,7 @@ function createSplash() {
         hasShadow: true,
         show: false,
         titleBarStyle: 'hidden',
-        icon: path.join(__dirname, 'assets', process.platform === 'win32' ? 'icon.ico' : 'icon.png'),
+        icon: path.join(__dirname, 'assets', 'icon.png'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
@@ -86,7 +92,7 @@ function createWindow() {
         center: true,
         show: false,
         autoHideMenuBar: true,
-        icon: path.join(__dirname, 'assets', process.platform === 'win32' ? 'icon.ico' : 'icon.png'),
+        icon: path.join(__dirname, 'assets', 'icon.png'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
@@ -103,7 +109,7 @@ function createWindow() {
 app.whenReady().then(() => {
     session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
         if (permission === 'media') {
-            callback(true); // Autorise micro/caméra
+            callback(true); // Allow micro/camera
         } else {
             callback(false);
         }
@@ -113,7 +119,7 @@ app.whenReady().then(() => {
         return true;
     });
 
-    // Charger la configuration au démarrage
+    // Load configuration on startup
     loadConfig();
 
     ipcMain.handle('get-config', () => {
