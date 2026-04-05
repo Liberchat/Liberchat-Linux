@@ -5,7 +5,7 @@
   
   <h1 style="margin-top: 0;">Liberchat Desktop 2.0.1</h1>
   
-  <a href="https://github.com/Liberchat/Liberchat">Projet principal sur GitHub</a>
+  <a href="https://github.com/Liberchat/Liberchat">Main project on GitHub</a>
   
   <br/>
   
@@ -16,100 +16,101 @@
   <img src="https://img.shields.io/badge/license-MIT-green"/>
   
   <br/>
-  <em>Application de messagerie moderne avec historique des serveurs et thèmes personnalisables.</em>
+  <em>Modern messaging application with server history and customizable themes.</em>
 </div>
 
-## ✨ Nouveautés version 2.0.1
+## What's new in version 2.0.1
 
-### 🕒 Historique des serveurs
-- **Menu déroulant intelligent** : Mémorise automatiquement vos 5 derniers serveurs utilisés
-- **Sélection rapide** : Cliquez sur un serveur de l'historique pour le sélectionner instantanément
-- **Gestion facile** : Supprimez les serveurs indésirables d'un simple clic
-- **Pas de doublons** : Évite automatiquement les entrées en double
+### Server History
+- **Smart dropdown menu**: Automatically remembers your last 5 used servers
+- **Quick selection**: Click on a server from the history to select it instantly
+- **Easy management**: Remove unwanted servers with a single click
+- **No duplicates**: Automatically prevents duplicate entries
 
-### 🎨 Système de thèmes
-- **Mode sombre/clair** : Basculez entre les thèmes selon vos préférences
-- **Mode automatique** : Suit automatiquement le thème de votre système
-- **Persistance** : Vos préférences sont sauvegardées entre les sessions
-- **Interface complète** : Tous les éléments s'adaptent au thème choisi
+### Theme System
+- **Dark/Light mode**: Toggle between themes according to your preferences
+- **Auto mode**: Automatically follows your system theme
+- **Persistence**: Your preferences are saved between sessions
+- **Complete interface**: All elements adapt to the chosen theme
 
-### 💾 Sauvegarde intelligente
-- **Configuration persistante** : Historique et thème sauvegardés automatiquement
-- **Fichier local** : Données stockées dans `~/.liberchat/config.json`
-- **Récupération d'erreur** : Gestion robuste des données corrompues
+### Smart Save
+- **Persistent configuration**: History and theme are saved automatically
+- **Local file**: Data is stored in `~/.liberchat/config.json`
+- **Error recovery**: Robust handling of corrupted data
 
-## Fonctionnalités principales
-- **Splash screen** stylisé avec choix du serveur
-- **Compatibilité micro** (permissions automatiques)
-- **Sécurité** : contextIsolation, preload sécurisé
-- **Fenêtre principale maximisée, sans barre de menu**
-- **Icône système** : Affichage correct dans la barre des tâches
-- **Build universel Linux** : AppImage, deb, rpm, snap
+## Main Features
+- Stylized **Splash screen** with server selection
+- **Microphone compatibility** (automatic permissions)
+- **Security**: contextIsolation, secure preload
+- **Maximized main window, without menu bar**
+- **System icon**: Correct display in the taskbar
+- **Universal Linux build**: AppImage, deb, rpm
 
-## Installation & Lancement
+## Installation & Launch
 
 ```bash
-# Installer les dépendances
+# Install dependencies
 npm install
 
-# Lancer en mode développement
+# Run in development mode
 npm start
 
-# Générer les paquets pour Linux (AppImage, deb, rpm, snap)
+# Generate packages for Linux (AppImage, deb, rpm)
 npm run build
 ```
 
-Les fichiers générés se trouvent dans le dossier `dist/`.
+The generated files are located in the `dist/` folder.
 
-## Installation sur Linux
+## Installation on Linux
 
-Après compilation (`npm run build`), vous trouverez dans le dossier `dist/` :
+After compiling (`npm run build`), you will find in the `dist/` folder:
 
-- **AppImage** (`.AppImage`) : universel, exécutable sur la plupart des distributions.
-  - Rendez le fichier exécutable : `chmod +x Liberchat-*.AppImage`
-  - Lancez-le : `./Liberchat-*.AppImage`
+- **AppImage** (`.AppImage`): universal, executable on most distributions.
+  - Make the file executable: `chmod +x Liberchat-*.AppImage`
+  - Run it: `./Liberchat-*.AppImage`
 
-- **Debian/Ubuntu** (`.deb`) :
-  - Installez avec : `sudo dpkg -i Liberchat-*.deb`
-  - Ou double-cliquez sur le fichier dans votre gestionnaire de fichiers.
+- **Debian/Ubuntu** (`.deb`):
+  - Install with: `sudo dpkg -i Liberchat-*.deb`
+  - Or double-click the file in your file manager.
 
 
-- **Snap** (`.snap`) :
-  - Installez avec : `sudo snap install --dangerous Liberchat-*.snap`
+- **Red Hat/Fedora/SUSE** (`.rpm`):
+  - Install with: `sudo rpm -i Liberchat-*.rpm`
+  - Or double-click the file in your file manager.
 
-> **Astuce** : AppImage fonctionne sur la plupart des distributions sans installation système.
+> **Tip**: AppImage works on most distributions without system installation.
 
-## Configuration du serveur
-Au démarrage, saisissez l’URL du serveur Liberchat de votre choix dans le splash screen.
+## Server Configuration
+On startup, enter the Liberchat server URL of your choice in the splash screen.
 
-## Dépendances principales
+## Main Dependencies
 - [Electron](https://www.electronjs.org/) ^22.x
 - [electron-builder](https://www.electron.build/)
 
-## Licence
+## License
 MIT
 
 ---
-Projet moderne, pensé pour la compatibilité et la simplicité d’utilisation sur toutes les distributions Linux.
+Modern project, designed for compatibility and ease of use on all Linux distributions.
 
+## Usage
 
-## 🚀 Utilisation
+### Server Configuration
+1. **First launch**: Enter the Liberchat server URL in the splash screen
+2. **Subsequent servers**: Click in the URL field to see your server history
+3. **Quick selection**: Choose a server from the dropdown list
 
-### Configuration du serveur
-1. **Premier lancement** : Saisissez l'URL du serveur Liberchat dans le splash screen
-2. **Serveurs suivants** : Cliquez dans le champ URL pour voir l'historique de vos serveurs
-3. **Sélection rapide** : Choisissez un serveur dans la liste déroulante
+### Customization
+- **Change theme**: Click on the theme toggle icon in the top right corner
+- **Manage history**: Use the close button to remove servers from history
 
-### Personnalisation
-- **Changer de thème** : Cliquez sur l'icône 🌙/☀️ en haut à droite
-- **Gérer l'historique** : Utilisez le bouton ✕ pour supprimer des serveurs de l'historique
+### Default Server
+The application connects by default to: `https://liberchat.cnt-ait-contact.noho.st/liberchat`
 
-### Serveur par défaut
-L'application se connecte par défaut à : `https://liberchat.cnt-ait-contact.noho.st/liberchat`
+## Changelog v2.0.1
+- Added server history with dropdown menu
+- Dark/light/auto theme system
+- Persistent saving of user preferences
+- Fixed icon display in the taskbar
+- Improved and more intuitive user interface
 
-## 📋 Changelog v2.0.1
-- ✅ Ajout de l'historique des serveurs avec menu déroulant
-- ✅ Système de thèmes sombre/clair/automatique
-- ✅ Sauvegarde persistante des préférences utilisateur
-- ✅ Correction de l'affichage de l'icône dans la barre des tâches
-- ✅ Interface utilisateur améliorée et plus intuitive
